@@ -2,12 +2,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 data = pd.read_excel("dataset will be used.xlsx")
-
 data.columns = ["year", "game_name", "id", "searches"]
 data = data.iloc[1:]
 data["searches"] = data["searches"].astype(int)
 
-# groups the data by game name and adds together all search values for each gam
+# groups the data by game name and adds together all search values for each game
 total_searches = data.groupby("game_name")["searches"].sum()
 
 # sorts the games from highest to lowest searches and selects the top six.
@@ -25,9 +24,7 @@ plt.title("Top 6 Most Searched Games")
 
 #rotaion for the lines
 plt.xticks(rotation=45)
-
 # horizental lines
 plt.grid(axis='y')
 plt.tight_layout()
-
 plt.show()
